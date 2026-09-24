@@ -1,0 +1,1 @@
+-keepclassmembers class com.eggadda.app.MainActivity$Bridge { @android.webkit.JavascriptInterface <methods>; }
