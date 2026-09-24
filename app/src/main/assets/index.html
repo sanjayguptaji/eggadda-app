@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Eggadda - street-style egg kitchen. Har anda apne andaz mai.">
+<meta name="theme-color" content="#F2A61C">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Eggadda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..900,100&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --shell:#FBF1E1; --white:#FFFDF8; --yolk:#F2A61C; --yolk-deep:#D98A0B; --ink:#2B1D12;
+  --ink-soft:#6B5644; --line:#E8D8BF; --chili:#C2410C; --card:#FFFDF8; --on-yolk:#2B1D12;
+  --display:"Fraunces", "Georgia", serif; --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  color-scheme:dark; --shell:#1C140D; --white:#2A1F16; --card:#261B12; --ink:#FBEFDC; --ink-soft:#C9B39A;
+  --line:#3F3024; --yolk:#F5B232; --yolk-deep:#F5B232; --chili:#FB8A4E; --on-yolk:#2B1D12; } }
+:root[data-theme="dark"]{
+  color-scheme:dark; --shell:#1C140D; --white:#2A1F16; --card:#261B12; --ink:#FBEFDC; --ink-soft:#C9B39A;
+  --line:#3F3024; --yolk:#F5B232; --yolk-deep:#F5B232; --chili:#FB8A4E; --on-yolk:#2B1D12; }
+
+*{box-sizing:border-box}
+body{background:var(--shell); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px; margin:0 auto; padding-inline:20px}
+button{font:inherit; cursor:pointer}
+:focus-visible{outline:3px solid var(--yolk-deep); outline-offset:2px; border-radius:6px}
+
+/* Hero */
+.hero{background:var(--yolk); color:var(--on-yolk); border-bottom:3px solid #2B1D12; position:relative; overflow:hidden}
+.hero .wrap{display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; padding-block:40px 44px}
+.logo{width:132px; height:auto; flex:none; transform-origin:30% 90%; animation:wob 3.2s ease-in-out 1s 2}
+@keyframes wob{0%,100%{transform:rotate(0)}20%{transform:rotate(-6deg)}40%{transform:rotate(4deg)}60%{transform:rotate(-2deg)}}
+.brand{font-family:var(--display); font-weight:900; font-variation-settings:"SOFT" 100,"opsz" 144; font-size:clamp(3rem, 9vw, 6.2rem); line-height:.9; letter-spacing:-.02em; margin:0}
+.brand small{font-size:.28em; font-weight:700; letter-spacing:0; vertical-align:.35em; margin-left:.15em; opacity:.75}
+.punch{font-family:var(--display); font-style:italic; font-weight:600; font-size:clamp(1.25rem,3.2vw,1.9rem); margin:.35em 0 0}
+.sub{margin:.5em 0 0; font-weight:500; max-width:52ch}
+.hero-stats{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+.pill{display:inline-flex; align-items:center; gap:6px; background:#2B1D12; color:#FBEFDC; font-weight:600; font-size:.85rem; padding:6px 12px; border-radius:99px}
+.pill b{color:#F5B232}
+
+/* Nav */
+.nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--shell); border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex; gap:12px; align-items:center; padding-block:10px}
+.chips{display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; flex:1; min-width:0}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none; border:1.5px solid var(--ink); background:transparent; color:var(--ink); border-radius:99px; padding:6px 14px; font-weight:600; font-size:.88rem; white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--ink); color:var(--shell)}
+.search{flex:0 1 220px; min-width:120px; border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:99px; padding:7px 14px; font:inherit; font-size:.9rem}
+
+/* Menu */
+main{padding-block:28px 120px}
+.grid{columns:2 440px; column-gap:48px}
+.sec{break-inside:avoid; margin-bottom:36px}
+.sec h2{display:flex; align-items:center; gap:12px; font-family:var(--display); font-weight:800; font-variation-settings:"SOFT" 100; font-size:1.7rem; margin:0 0 14px; text-wrap:balance}
+.num{width:38px; height:38px; flex:none; border-radius:50%; background:var(--yolk); color:var(--on-yolk); border:2.5px solid var(--ink); display:grid; place-items:center; font-size:.85rem; font-weight:800; font-family:var(--display); font-variant-numeric:tabular-nums}
+.item{display:grid; grid-template-columns:1fr auto; gap:4px 14px; padding:12px 0; border-bottom:1px dashed var(--line)}
+.item h3{margin:0; font-size:1.02rem; font-weight:700; display:flex; flex-wrap:wrap; align-items:center; gap:8px}
+.item p{margin:0; grid-column:1; color:var(--ink-soft); font-size:.9rem}
+.tag{font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; background:var(--ink); color:var(--shell); padding:3px 8px; border-radius:99px}
+.tag.hot{background:var(--chili); color:#fff}
+.opts{display:flex; flex-wrap:wrap; gap:6px; margin-top:6px}
+.opt{font-size:.78rem; border:1px solid var(--line); border-radius:6px; padding:2px 8px; color:var(--ink-soft)}
+.add{grid-row:1 / span 2; grid-column:2; align-self:center; display:flex; align-items:center; gap:6px; border:2px solid var(--ink); background:var(--card); color:var(--ink); border-radius:99px; padding:5px 12px 5px 8px; font-weight:700; font-size:.85rem; transition:transform .12s}
+.add:active{transform:scale(.94)}
+.add .dot{width:18px; height:18px; border-radius:50%; background:var(--yolk); border:2px solid var(--ink); display:grid; place-items:center; font-size:.75rem; line-height:1; color:var(--on-yolk)}
+.add.on{background:var(--yolk); color:var(--on-yolk)}
+
+/* Thali feature */
+.thali{break-inside:avoid; background:#2B1D12; color:#FBEFDC; border-radius:18px; padding:22px; margin:6px 0 14px; border:2px solid #2B1D12}
+.thali .eyebrow{color:#F5B232; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700}
+.thali-top{display:flex; justify-content:space-between; align-items:center; gap:12px}
+.thali h3{font-family:var(--display); font-weight:900; font-size:2rem; margin:2px 0 14px; font-variation-settings:"SOFT" 100}
+.thali ul{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.thali li{border:1px solid #5A4634; border-radius:10px; padding:9px 12px; font-weight:600; font-size:.9rem}
+.thali .add{background:#F5B232; color:#2B1D12; border-color:#F5B232}
+.thali .add .dot{background:#FBEFDC; border-color:#2B1D12}
+
+.empty{padding:40px 0; text-align:center; color:var(--ink-soft)}
+.note{color:var(--ink-soft); font-size:.9rem; border-top:2px solid var(--ink); padding-top:14px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px}
+.todo{background:color-mix(in srgb, var(--yolk) 25%, transparent); border-radius:4px; padding:0 4px}
+
+/* Plate */
+.plate-btn{position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px)); z-index:9; display:flex; align-items:center; gap:10px; background:var(--ink); color:var(--shell); border:none; border-radius:99px; padding:12px 20px 12px 14px; font-weight:700; box-shadow:0 8px 24px rgba(43,29,18,.3)}
+.plate-btn .count{min-width:26px; height:26px; border-radius:50%; background:var(--yolk); color:#2B1D12; display:grid; place-items:center; font-variant-numeric:tabular-nums}
+.plate-btn.bump{animation:bump .3s}
+@keyframes bump{50%{transform:scale(1.1)}}
+.sheet{position:fixed; inset:auto 0 0 0; z-index:10; background:var(--card); border-top:3px solid var(--ink); border-radius:22px 22px 0 0; max-height:78vh; overflow:auto; padding:20px 20px calc(20px + env(safe-area-inset-bottom,0px)); box-shadow:0 -10px 40px rgba(0,0,0,.25)}
+.sheet .inner{max-width:560px; margin:0 auto}
+.sheet h2{font-family:var(--display); font-weight:800; margin:0; font-size:1.6rem}
+.sheet-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px}
+.x{border:none; background:transparent; color:var(--ink); font-size:1.6rem; line-height:1}
+.row{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px dashed var(--line)}
+.qty{display:flex; align-items:center; gap:10px; font-variant-numeric:tabular-nums; font-weight:700}
+.qty button{width:30px; height:30px; border-radius:50%; border:2px solid var(--ink); background:transparent; color:var(--ink); font-weight:800}
+.sheet textarea{width:100%; margin-top:14px; border:1.5px solid var(--line); border-radius:10px; background:var(--shell); color:var(--ink); font:inherit; font-size:.88rem; padding:10px; min-height:90px}
+.actions{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap}
+.btn{border:2px solid var(--ink); border-radius:99px; padding:9px 18px; font-weight:700; background:var(--yolk); color:#2B1D12}
+.btn.ghost{background:transparent; color:var(--ink)}
+.toast{position:fixed; left:50%; bottom:calc(84px + env(safe-area-inset-bottom,0px)); transform:translateX(-50%); background:var(--ink); color:var(--shell); padding:8px 16px; border-radius:99px; font-weight:600; z-index:11}
+.scrim{position:fixed; inset:0; background:rgba(20,12,6,.45); z-index:9}
+
+@media (max-width:560px){
+  .hero .wrap{grid-template-columns:1fr; gap:14px; padding-block:28px 32px}
+  .logo{width:88px}
+  .nav .wrap{flex-wrap:wrap}
+  .search{flex:1 1 100%}
+  .thali ul{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 120 120" role="img" aria-label="Eggadda logo">
+      <path d="M60 12c29 0 50 17 50 40s-21 40-50 40c-7 0-14-1-20-3L20 108l6-22C15 79 10 67 10 52 10 29 31 12 60 12z" fill="#fff" stroke="#2B1D12" stroke-width="5.5" stroke-linejoin="round"/>
+      <circle cx="60" cy="52" r="23" fill="#F2A61C" stroke="#2B1D12" stroke-width="5"/>
+      <path d="M50 46a12 12 0 0 1 10-8" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <h1 class="brand">Eggadda<small>.com</small></h1>
+      <p class="punch">Har anda apne andaz mai</p>
+      <p class="sub">A street-style egg kitchen. Vada pav to biryani, dosa to Nutella sandwich, every dish on this menu starts with an egg.</p>
+      <div class="hero-stats"><span class="pill"><b>22</b> egg dishes</span><span class="pill"><b>8</b> sections</span><span class="pill">Must try: <b>Egg Pav Bhaji (Gotala)</b></span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Menu sections">
+  <div class="wrap">
+    <div class="chips" id="chips"></div>
+    <input class="search" id="search" type="search" placeholder="Search dishes" aria-label="Search dishes">
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="grid" id="menu"></div>
+  <p class="empty" id="empty" hidden>No dish matches that search. Try "omelette" or "biryani".</p>
+  <div class="note">
+    <span>All dishes contain egg · Prices inclusive of taxes</span>
+    <span><span class="todo">[Address]</span> · <span class="todo">[Phone]</span> · <span class="todo">[@Instagram]</span></span>
+  </div>
+</main>
+
+<button class="plate-btn" id="plateBtn" type="button" aria-label="Open my plate"><span class="count" id="count">0</span>My plate</button>
+<div class="scrim" id="scrim" hidden></div>
+<section class="sheet" id="sheet" hidden aria-label="My plate">
+  <div class="inner">
+    <div class="sheet-head"><h2>My plate</h2><button class="x" id="closeSheet" type="button" aria-label="Close">×</button></div>
+    <div id="rows"></div>
+    <label for="orderText" style="display:block;margin-top:14px;font-weight:600;font-size:.9rem">Order note to send on WhatsApp or show at the counter</label>
+    <textarea id="orderText" readonly></textarea>
+    <div class="actions"><button class="btn" id="copy" type="button">Copy order</button><button class="btn ghost" id="clear" type="button">Clear plate</button></div>
+  </div>
+</section>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const MENU = [
+ {id:"street", n:"01", t:"Street Style Specials", items:[
+  ["Egg Vada Pav","Boiled egg dipped in besan batter, fried golden, in pav with green & garlic chutney"],
+  ["Egg Samosa","Crisp samosa stuffed with spiced egg bhurji"],
+  ["Egg Bhel","Puffed rice, chopped egg, onion, sev, tangy chutneys"],
+  ["Egg Pakode","Pick your style",null,["Classic egg","Egg kheema","Onion-egg"]],
+  ["Egg Pav Bhaji (Gotala)","Bhaji tossed with scrambled egg, served with butter pav","Must try"],
+  ["Chips Omelette","Masala omelette loaded with your pick of chips",null,["Lays","Pringles","Kurkure"]]]},
+ {id:"sandwich", n:"02", t:"Sandwiches & Burgers", items:[
+  ["Egg Sandwich","Boiled egg, veggies and green chutney, grilled"],
+  ["Nutella Egg Sandwich","French-toast style bread with Nutella filling"],
+  ["Egg Burger","Fried egg, cheese, crunchy veggies and house sauce"]]},
+ {id:"omelette", n:"03", t:"Omelette Station", items:[
+  ["Omelette","Four ways",null,["Plain","Masala","Cheese","Bread omelette"]],
+  ["Butter Garlic Eggs","Eggs tossed in garlic butter and herbs"]]},
+ {id:"soups", n:"04", t:"Soups & Starters", items:[
+  ["Egg Soup","Hot, peppery and comforting"],
+  ["Egg Kebab","Spiced egg kebabs, char-grilled"],
+  ["Egg Lollipop","Crispy coated egg bites with dip"]]},
+ {id:"chinese", n:"05", t:"Chinese Corner", items:[
+  ["Egg Manchurian","Egg dumplings in dry or gravy Manchurian sauce",null,["Dry","Gravy"]],
+  ["Egg Noodles","Wok-tossed hakka noodles with scrambled egg"]]},
+ {id:"fusion", n:"06", t:"Fusion Bites", items:[
+  ["Egg Dosa","Crisp dosa with egg spread and podi masala"],
+  ["Egg Pizza","Cheesy pizza topped with egg and veggies"],
+  ["Egg Waffle","Fluffy waffle, sweet or savoury",null,["Sweet","Savoury"]]]},
+ {id:"biryani", n:"07", t:"Biryani & Thali", thali:true, items:[
+  ["Egg Biryani","Dum biryani with masala eggs, raita on the side"]]},
+ {id:"shakes", n:"08", t:"Shakes", items:[
+  ["Protein Shake","Egg-powered shake for the gym crowd","High protein"]]}
+];
+const THALI = ["White Gravy Egg","Egg Makhani","Egg Lababdar","Egg Fried Rice"];
+
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let plate = {};
+try { plate = JSON.parse(localStorage.getItem("eggadda-plate") || "{}") || {}; } catch(e) { plate = {}; }
+let active = "all", q = "";
+
+function addBtn(name){
+  const on = plate[name] ? " on" : "";
+  return `<button class="add${on}" type="button" data-add="${esc(name)}" aria-label="Add ${esc(name)} to plate"><span class="dot">+</span>${plate[name] ? "×"+plate[name] : "Add"}</button>`;
+}
+function render(){
+  const ql = q.trim().toLowerCase();
+  let html = "", shown = 0;
+  for (const s of MENU){
+    if (active !== "all" && active !== s.id) continue;
+    const items = s.items.filter(([n,d,,o]) => !ql || (n+" "+d+" "+(o||[]).join(" ")+" "+s.t).toLowerCase().includes(ql));
+    const thaliMatch = s.thali && (!ql || ("egg thali "+THALI.join(" ")).toLowerCase().includes(ql));
+    if (!items.length && !thaliMatch) continue;
+    shown += items.length + (thaliMatch?1:0);
+    html += `<section class="sec" id="s-${s.id}"><h2><span class="num">${s.n}</span>${esc(s.t)}</h2>`;
+    for (const [n,d,tag,opts] of items){
+      html += `<div class="item"><h3>${esc(n)}${tag?`<span class="tag${tag==="Must try"?" hot":""}">${tag}</span>`:""}</h3>${addBtn(n)}<p>${esc(d)}${opts?`<span class="opts">${opts.map(o=>`<span class="opt">${esc(o)}</span>`).join("")}</span>`:""}</p></div>`;
+    }
+    if (thaliMatch){
+      html += `<div class="thali"><div class="thali-top"><div><div class="eyebrow">The big one</div><h3>Egg Thali</h3></div>${addBtn("Egg Thali")}</div><ul>${THALI.map(t=>`<li>${t}</li>`).join("")}</ul></div>`;
+    }
+    html += `</section>`;
+  }
+  $("#menu").innerHTML = html;
+  $("#empty").hidden = shown > 0;
+}
+function chips(){
+  const list = [{id:"all",t:"All"}, ...MENU];
+  $("#chips").innerHTML = list.map(s=>`<button class="chip" type="button" data-sec="${s.id}" aria-pressed="${active===s.id}">${esc(s.t)}</button>`).join("");
+}
+function save(){ try{ localStorage.setItem("eggadda-plate", JSON.stringify(plate)); }catch(e){} }
+function total(){ return Object.values(plate).reduce((a,b)=>a+b,0); }
+function syncPlate(bump){
+  $("#count").textContent = total();
+  if (bump){ const b=$("#plateBtn"); b.classList.remove("bump"); void b.offsetWidth; b.classList.add("bump"); }
+  const names = Object.keys(plate);
+  $("#rows").innerHTML = names.length ? names.map(n=>`<div class="row"><span>${esc(n)}</span><span class="qty"><button type="button" data-dec="${esc(n)}" aria-label="Remove one ${esc(n)}">−</button>${plate[n]}<button type="button" data-inc="${esc(n)}" aria-label="Add one ${esc(n)}">+</button></span></div>`).join("")
+    : `<p style="color:var(--ink-soft)">Your plate is empty. Tap Add on any dish.</p>`;
+  $("#orderText").value = names.length ? "Hi Eggadda! My order:\n" + names.map(n=>`• ${plate[n]} × ${n}`).join("\n") : "";
+  save();
+}
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>t.hidden=true,1800); }
+function openSheet(v){ $("#sheet").hidden=!v; $("#scrim").hidden=!v; }
+
+document.addEventListener("click", e=>{
+  const a = e.target.closest("[data-add]"), c = e.target.closest("[data-sec]"),
+        inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+  if (a){ const n=a.dataset.add; plate[n]=(plate[n]||0)+1; render(); syncPlate(true); toast(`${n} added`); }
+  if (c){ active=c.dataset.sec; chips(); render(); window.scrollTo({top:$(".nav").offsetTop, behavior:"smooth"}); }
+  if (inc){ plate[inc.dataset.inc]++; syncPlate(); render(); }
+  if (dec){ const n=dec.dataset.dec; if(--plate[n]<=0) delete plate[n]; syncPlate(); render(); }
+});
+$("#search").addEventListener("input", e=>{ q=e.target.value; render(); });
+$("#plateBtn").addEventListener("click", ()=>openSheet(true));
+$("#closeSheet").addEventListener("click", ()=>openSheet(false));
+$("#scrim").addEventListener("click", ()=>openSheet(false));
+$("#clear").addEventListener("click", ()=>{ plate={}; syncPlate(); render(); });
+$("#copy").addEventListener("click", ()=>{
+  const txt=$("#orderText").value; if(!txt){ toast("Add a dish first"); return; }
+  if(window.EggaddaApp){ EggaddaApp.copy(txt); toast("Order copied"); return; }
+  const fallback=()=>{ const t=$("#orderText"); t.focus(); t.select(); toast("Selected. Copy it from here"); };
+  try{ navigator.clipboard.writeText(txt).then(()=>toast("Order copied"), fallback); }catch(err){ fallback(); }
+});
+chips(); render(); syncPlate();
+</script>
+</body>
+</html>
